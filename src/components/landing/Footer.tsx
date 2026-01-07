@@ -1,0 +1,46 @@
+import { Shield } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer className="bg-navy-deep border-t border-cream/10">
+      <div className="container-narrow section-padding py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <Shield className="h-6 w-6 text-gold" />
+            <span className="text-xl font-serif font-bold text-cream">Axiom</span>
+          </div>
+
+          {/* Links */}
+          <nav className="flex items-center gap-8">
+            <a href="#about" className="text-cream/60 hover:text-cream transition-colors text-sm">
+              About
+            </a>
+            <a href="#coverage" className="text-cream/60 hover:text-cream transition-colors text-sm">
+              Coverage
+            </a>
+            <a href="#" className="text-cream/60 hover:text-cream transition-colors text-sm">
+              Contact
+            </a>
+          </nav>
+
+          {/* Copyright */}
+          <p className="text-cream/40 text-sm">
+            © 2025 Axiom Insurance. All rights reserved.
+          </p>
+        </div>
+
+        {/* Disclaimer */}
+        <div className="mt-8 pt-8 border-t border-cream/10">
+          <p className="text-cream/30 text-xs text-center max-w-4xl mx-auto">
+            Coverage is subject to underwriting approval and policy terms. This website provides general information only and does not constitute an offer of insurance. 
+            All coverage and limits are subject to the terms, conditions, and exclusions of the applicable policy. Axiom Insurance is a managing general agent. 
+            Insurance products may be underwritten by various carriers and are subject to their underwriting guidelines.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

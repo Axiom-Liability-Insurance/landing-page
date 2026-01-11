@@ -1,14 +1,14 @@
-import { Shield } from "lucide-react";
+import { forwardRef } from "react";
+import logo from "@/assets/logo-020-b.png";
 
-const Footer = () => {
+const Footer = forwardRef<HTMLElement>((props, ref) => {
   return (
-    <footer className="bg-navy-deep border-t border-cream/10">
+    <footer ref={ref} className="bg-navy-deep border-t border-cream/10 m-0">
       <div className="container-narrow section-padding py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Shield className="h-6 w-6 text-gold" />
-            <span className="text-xl font-serif font-bold text-cream">Axiom</span>
+            <img src={logo} alt="Axiom" className="h-8 w-auto" />
           </div>
 
           {/* Links */}
@@ -26,7 +26,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-cream/40 text-sm">
-            © 2025 Axiom Insurance. All rights reserved.
+            © 2026 Axiom Insurance. All rights reserved.
           </p>
         </div>
 
@@ -41,6 +41,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

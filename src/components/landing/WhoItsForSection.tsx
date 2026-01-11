@@ -38,8 +38,8 @@ const WhoItsForSection = () => {
     <section className="section-padding bg-background">
       <div className="container-narrow">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-left mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
             Who It's For
           </h2>
           <p className="text-muted-foreground text-lg">

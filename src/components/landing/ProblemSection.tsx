@@ -21,11 +21,6 @@ const risks = [
     title: "Professional Negligence",
     description: "Liability from AI-assisted work that fails professional standards",
   },
-  {
-    icon: Gavel,
-    title: "Regulatory Fines",
-    description: "Penalties from AI usage violations under emerging regulations",
-  },
 ];
 
 const ProblemSection = () => {
@@ -33,8 +28,8 @@ const ProblemSection = () => {
     <section className="section-padding gradient-cream">
       <div className="container-narrow">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-left mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
             AI Risk Is Real — And Currently Uninsured
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -43,16 +38,18 @@ const ProblemSection = () => {
         </div>
 
         {/* Risk Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {risks.map((risk, index) => (
             <div 
               key={index}
               className="card-enterprise group hover:border-teal-dark/30 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-lg bg-navy-deep/10 flex items-center justify-center mb-4 group-hover:bg-teal-dark/10 transition-colors">
-                <risk.icon className="w-6 h-6 text-navy-deep" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-navy-deep/10 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-dark/10 transition-colors">
+                  <risk.icon className="w-6 h-6 text-navy-deep" />
+                </div>
+                <h3 className="text-sm font-semibold text-foreground leading-tight">{risk.title}</h3>
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{risk.title}</h3>
               <p className="text-muted-foreground text-sm">{risk.description}</p>
             </div>
           ))}
@@ -62,7 +59,7 @@ const ProblemSection = () => {
         <div className="stat-callout text-center">
           <p className="text-4xl md:text-5xl font-serif font-bold text-cream mb-3">87%</p>
           <p className="text-cream/90 text-lg max-w-xl mx-auto">
-            of companies use AI today. Most believe they're insured. <strong className="text-gold">They're not.</strong>
+            of enterprises currently utilize artificial intelligence in their operations. However, standard insurance policies typically exclude coverage for AI-related liabilities, creating a significant protection gap.
           </p>
         </div>
       </div>

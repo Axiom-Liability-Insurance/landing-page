@@ -1,12 +1,14 @@
-import { Quote, DollarSign } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Quote, DollarSign, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const ExposureSection = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-narrow">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-left mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
             AI Mistakes Are Already Costing Companies
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -53,6 +55,20 @@ const ExposureSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Read More Button */}
+          <div className="mt-12 text-center">
+            <Link to="/case-studies">
+              <Button 
+                variant="outline" 
+                size="xl" 
+                className="group px-10 py-6 text-base font-semibold shadow-[0_8px_24px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-navy-deep/20 via-navy-deep/30 to-navy-deep/20 backdrop-blur-md !border-0 text-navy-deep hover:from-navy-deep/30 hover:via-navy-deep/40 hover:to-navy-deep/30"
+              >
+                Read More Case Studies in Detail
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

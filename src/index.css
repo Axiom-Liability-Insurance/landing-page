@@ -2,95 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 @layer base {
   :root {
-    /* Enterprise Navy/Teal Palette */
+    /* Green Color Palette - Based on #1c4439 */
     --background: 40 20% 98%;
-    --foreground: 210 50% 10%;
+    --foreground: 165 50% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 50% 10%;
+    --card-foreground: 165 50% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 10%;
+    --popover-foreground: 165 50% 10%;
 
-    /* Deep Navy - Primary brand color */
-    --primary: 210 60% 15%;
+    /* Primary green - #1c4439 */
+    --primary: 165 41% 19%;
     --primary-foreground: 40 20% 98%;
 
-    /* Teal accent */
-    --secondary: 175 40% 25%;
+    /* Green accent */
+    --secondary: 165 45% 25%;
     --secondary-foreground: 40 20% 98%;
 
     /* Muted surfaces */
-    --muted: 210 20% 94%;
-    --muted-foreground: 210 25% 45%;
+    --muted: 165 20% 94%;
+    --muted-foreground: 165 25% 45%;
 
-    /* Gold accent for CTAs */
-    --accent: 42 80% 55%;
-    --accent-foreground: 210 50% 10%;
+    /* Green accent for CTAs */
+    --accent: 165 50% 35%;
+    --accent-foreground: 40 20% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 210 60% 15%;
+    --border: 165 20% 88%;
+    --input: 165 20% 88%;
+    --ring: 165 41% 19%;
 
     --radius: 0.375rem;
 
-    /* Custom semantic tokens */
-    --navy-deep: 210 60% 12%;
-    --navy-medium: 210 55% 20%;
-    --teal-dark: 175 45% 22%;
-    --teal-light: 175 35% 35%;
+    /* Custom semantic tokens - Green variations based on #1c4439 */
+    --navy-deep: 165 45% 12%;
+    --navy-medium: 165 41% 19%;
+    --teal-dark: 165 45% 25%;
+    --teal-light: 165 40% 40%;
     --cream: 40 25% 96%;
     --cream-dark: 40 15% 92%;
-    --gold: 42 80% 55%;
-    --gold-dark: 42 70% 45%;
-    --text-muted: 210 20% 55%;
+    --gold: 165 50% 35%;
+    --gold-dark: 165 41% 19%;
+    --text-muted: 165 20% 55%;
 
     /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 165 5.3% 26.1%;
+    --sidebar-primary: 165 41% 19%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 165 4.8% 95.9%;
+    --sidebar-accent-foreground: 165 5.9% 10%;
+    --sidebar-border: 165 13% 91%;
+    --sidebar-ring: 165 41% 19%;
   }
 
   .dark {
-    --background: 210 60% 8%;
+    --background: 165 45% 8%;
     --foreground: 40 20% 98%;
 
-    --card: 210 55% 12%;
+    --card: 165 45% 12%;
     --card-foreground: 40 20% 98%;
 
-    --popover: 210 55% 12%;
+    --popover: 165 45% 12%;
     --popover-foreground: 40 20% 98%;
 
-    --primary: 40 20% 98%;
-    --primary-foreground: 210 60% 15%;
+    --primary: 165 50% 35%;
+    --primary-foreground: 165 45% 12%;
 
-    --secondary: 175 40% 30%;
+    --secondary: 165 45% 25%;
     --secondary-foreground: 40 20% 98%;
 
-    --muted: 210 40% 18%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 165 40% 18%;
+    --muted-foreground: 165 15% 65%;
 
-    --accent: 42 80% 55%;
-    --accent-foreground: 210 50% 10%;
+    --accent: 165 50% 35%;
+    --accent-foreground: 165 50% 10%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 40% 20%;
-    --input: 210 40% 20%;
-    --ring: 40 20% 85%;
+    --border: 165 40% 20%;
+    --input: 165 40% 20%;
+    --ring: 165 50% 35%;
   }
 }
 
@@ -102,10 +102,42 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+    /* Prevent overscroll bounce */
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
   }
 
+  html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Hide scrollbar but keep scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  #root {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: hsl(var(--background));
+  }
+
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
     @apply font-semibold tracking-tight;
   }
 }

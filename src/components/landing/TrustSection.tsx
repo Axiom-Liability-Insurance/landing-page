@@ -3,21 +3,18 @@ import { Building, Users, Award } from "lucide-react";
 const trustItems = [
   {
     icon: Building,
-    title: "Lloyd's of London",
-    description: "Approval in progress for Lloyd's-backed capacity",
-    status: "In Progress",
+    title: "Market Partnerships",
+    description: "Exploring partnerships with leading insurance markets",
   },
   {
     icon: Users,
     title: "Expert Team",
-    description: "Built by former Munich Re, SimpliSafe, and quantitative finance engineers",
-    status: "Verified",
+    description: "Built by insurance and AI industry veterans",
   },
   {
     icon: Award,
     title: "Advisory Board",
     description: "Supported by leading insurance and AI industry advisors",
-    status: "Active",
   },
 ];
 
@@ -26,30 +23,27 @@ const TrustSection = () => {
     <section className="section-padding gradient-cream">
       <div className="container-narrow">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-left mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
             Trust & Credibility
           </h2>
           <p className="text-muted-foreground text-lg">
-            Backed by industry expertise and institutional partnerships.
+            Building the future of AI liability insurance with industry expertise.
           </p>
         </div>
 
         {/* Trust Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {trustItems.map((item, index) => (
             <div 
               key={index}
-              className="text-center"
+              className="card-enterprise text-center group hover:border-teal-dark/30 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-2xl bg-navy-deep flex items-center justify-center mx-auto mb-5">
+              <div className="w-16 h-16 rounded-xl bg-navy-deep flex items-center justify-center mx-auto mb-6 group-hover:bg-teal-dark transition-colors duration-300">
                 <item.icon className="w-8 h-8 text-gold" />
               </div>
-              <span className="inline-block px-3 py-1 bg-teal-dark/10 text-teal-dark text-xs font-medium rounded-full mb-3">
-                {item.status}
-              </span>
-              <h3 className="text-xl font-serif font-semibold text-foreground mb-2">{item.title}</h3>
-              <p className="text-muted-foreground">{item.description}</p>
+              <h3 className="text-xl font-serif font-semibold text-foreground mb-3">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

@@ -23,8 +23,8 @@ const benefits = [
   },
   {
     icon: Building,
-    title: "Lloyd's-Backed Capacity",
-    description: "Path to securing coverage backed by the world's most trusted insurance marketplace.",
+    title: "Institutional Partnerships",
+    description: "Working towards partnerships with leading insurance markets to provide comprehensive coverage.",
   },
 ];
 
@@ -33,8 +33,8 @@ const WhyAxiomSection = () => {
     <section id="about" className="section-padding bg-background">
       <div className="container-narrow">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+        <div className="text-left mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4 leading-tight">
             Why Enterprises Choose Axiom
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -47,7 +47,7 @@ const WhyAxiomSection = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="group"
+              className="group bg-cream/30 backdrop-blur-md border border-cream/40 rounded-xl p-6 hover:bg-cream/40 hover:border-cream/50 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
             >
               <div className="w-14 h-14 rounded-xl bg-navy-deep flex items-center justify-center mb-5 group-hover:bg-teal-dark transition-colors duration-300">
                 <benefit.icon className="w-7 h-7 text-cream" />

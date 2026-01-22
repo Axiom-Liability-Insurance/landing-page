@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
@@ -5,6 +6,11 @@ import { Shield, Users, Clock, CheckCircle2, BookOpen, TrendingUp, AlertTriangle
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Workshops = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handlePurchaseTicket = () => {
     // TODO: Link to Stripe checkout page
     console.log("Navigate to Stripe checkout");

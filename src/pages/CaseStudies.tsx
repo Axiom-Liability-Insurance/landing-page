@@ -92,6 +92,11 @@ const CaseStudies = () => {
   const [activeSection, setActiveSection] = useState<string>(caseStudies[0].id);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200; // Offset for header

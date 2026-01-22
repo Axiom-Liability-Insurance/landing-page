@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-020-b.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleJoinWaitlist = () => {
     // Trigger the waitlist dialog from HeroSection
     // We'll use a custom event to communicate between components
@@ -10,17 +13,53 @@ const Header = () => {
   };
 
   const handleLearnMore = () => {
-    const coverageSection = document.getElementById("coverage");
-    if (coverageSection) {
-      coverageSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const coverageSection = document.getElementById("coverage");
+        if (coverageSection) {
+          coverageSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      const coverageSection = document.getElementById("coverage");
+      if (coverageSection) {
+        coverageSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
   const handleNavClick = (sectionId: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    
+    if (location.pathname !== "/") {
+      // Navigate to home page first
+      navigate("/");
+      // Wait for navigation and page render, then scroll to section
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const headerOffset = 80; // Account for fixed header
+          const elementPosition = section.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 150);
+    } else {
+      // Already on home page, just scroll
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerOffset = 80; // Account for fixed header
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     }
   };
 
@@ -56,9 +95,9 @@ const Header = () => {
             <Link to="/case-studies" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
               Case Studies
             </Link>
-            <Link to="/workshops" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
+            {/* <Link to="/workshops" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
               Workshops
-            </Link>
+            </Link> */}
           </nav>
 
           {/* CTAs */}

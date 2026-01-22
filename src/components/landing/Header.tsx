@@ -16,6 +16,14 @@ const Header = () => {
     }
   };
 
+  const handleNavClick = (sectionId: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-sm border-b border-cream/10">
       <div className="container-narrow section-padding py-4">
@@ -27,17 +35,29 @@ const Header = () => {
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="/#coverage" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
+            <button 
+              onClick={handleNavClick("coverage")} 
+              className="text-cream/80 hover:text-cream transition-colors text-sm font-medium cursor-pointer"
+            >
               Coverage
-            </a>
-            <a href="/#how-it-works" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
+            </button>
+            <button 
+              onClick={handleNavClick("how-it-works")} 
+              className="text-cream/80 hover:text-cream transition-colors text-sm font-medium cursor-pointer"
+            >
               How It Works
-            </a>
-            <a href="/#about" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
+            </button>
+            <button 
+              onClick={handleNavClick("about")} 
+              className="text-cream/80 hover:text-cream transition-colors text-sm font-medium cursor-pointer"
+            >
               About
-            </a>
+            </button>
             <Link to="/case-studies" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
               Case Studies
+            </Link>
+            <Link to="/workshops" className="text-cream/80 hover:text-cream transition-colors text-sm font-medium">
+              Workshops
             </Link>
           </nav>
 

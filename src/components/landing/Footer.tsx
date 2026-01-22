@@ -2,6 +2,22 @@ import { forwardRef } from "react";
 import logo from "@/assets/logo-020-b.png";
 
 const Footer = forwardRef<HTMLElement>((props, ref) => {
+  const handleNavClick = (sectionId: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const coverageSection = document.getElementById("coverage");
+    if (coverageSection) {
+      coverageSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <footer ref={ref} className="bg-navy-deep border-t border-cream/10 m-0">
       <div className="container-narrow section-padding py-12">
@@ -13,15 +29,24 @@ const Footer = forwardRef<HTMLElement>((props, ref) => {
 
           {/* Links */}
           <nav className="flex items-center gap-8">
-            <a href="#about" className="text-cream/60 hover:text-cream transition-colors text-sm">
+            <button 
+              onClick={handleNavClick("about")} 
+              className="text-cream/60 hover:text-cream transition-colors text-sm cursor-pointer"
+            >
               About
-            </a>
-            <a href="#coverage" className="text-cream/60 hover:text-cream transition-colors text-sm">
+            </button>
+            <button 
+              onClick={handleNavClick("coverage")} 
+              className="text-cream/60 hover:text-cream transition-colors text-sm cursor-pointer"
+            >
               Coverage
-            </a>
-            <a href="#" className="text-cream/60 hover:text-cream transition-colors text-sm">
+            </button>
+            <button 
+              onClick={handleContact} 
+              className="text-cream/60 hover:text-cream transition-colors text-sm cursor-pointer"
+            >
               Contact
-            </a>
+            </button>
           </nav>
 
           {/* Copyright */}

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import heroBg from "@/assets/cover-00.png";
+import heroBg from "@/assets/cover-02.png";
 
 const HeroSection = () => {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
@@ -75,6 +75,7 @@ const HeroSection = () => {
             </div>
 
             {/* Headline */}
+            {/*
             <div className="mb-10">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.15] mb-6">
                 <div className="text-cream mb-4 drop-shadow-[0_3px_12px_rgba(0,0,0,0.6)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
@@ -86,6 +87,14 @@ const HeroSection = () => {
                     Isn't Covered.
                   </span>
                 </div>
+              </h1>
+            </div>
+            */}
+            <div className="mb-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.15] mb-6">
+                <span className="text-cream drop-shadow-[0_3px_12px_rgba(0,0,0,0.3)] [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+                  Peace of Mind for Enterprises Working With AI
+                </span>
               </h1>
             </div>
 
